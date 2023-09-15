@@ -10,7 +10,7 @@ function addBookToList(book) {
     myBookList.push(book);
 }
 
-const myBookList = [{title : 'book1', author : 'writer', pages : 234, read : false}];
+const myBookList = [{title : 'book', author : 'writer', pages : 234, read : false}, {title : 'book', author : 'writer', pages : 234, read : true}];
 
 function displayBooks(myBookList) {
     for(let book of myBookList) {
@@ -31,6 +31,12 @@ function createBookCard(book) {
     title.textContent = `${book.title}`;
     author.textContent = `Written by ${book.author}`;
     pages.textContent = `${book.pages} pages`;
+
+    if(book.read) {
+        bookCard.classList.add('read');
+    } else {
+        bookCard.classList.add('unread');
+    }
 
     bookCard.appendChild(title);
     bookCard.appendChild(author);
