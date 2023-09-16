@@ -14,17 +14,38 @@
 <body>
     <header>
         <h1>Book List</h1>
+        <button id="add-book-btn" class="add-book"><i class="fa-solid fa-plus"></i></button>
     </header>
     <main>
         <div id="book-grid" class="book-grid"></div>
     </main>
-    <footer>
+    <footer class="footer">
         <p>
-            created by Scott Starks 
-            <a href="https://github.com/thetramp22">
-                <i class="fa-brands fa-github"></i>
-            </a>
-        </p>
+            Copyright &copy;
+            <script>
+                document.write(new Date().getFullYear());
+            </script>
+            Scott Starks
+        </p> 
+        <a href="https://github.com/thetramp22" target="_blank">
+            <i class="fa-brands fa-github"></i>
+        </a>
     </footer>
+    <div id="add-book-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add a Book</h2>
+            <form class="add-book-form">
+                    <input id="new-title" name="new-title" type="text" placeholder="Title" required autofocus>
+                    <input id="new-author" name="new-author" type="text" placeholder="Author" required>
+                    <input id="new-pages" name="new-pages" type="number" placeholder="Number of Pages" required>
+                    <div>
+                        <label for="new-read">Have you read it?</label>
+                        <input id="new-read" name="new-read" type="checkbox" class="checkbox">
+                    </div>
+                    <button id="submit-book-form">Add Book</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
