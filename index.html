@@ -33,7 +33,7 @@
     </footer>
     <div id="add-book-modal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <div id="close" class="close">&times;</div>
             <h2>Add a Book</h2>
             <form class="add-book-form">
                     <input id="new-title" name="new-title" type="text" placeholder="Title" required autofocus>
@@ -43,7 +43,7 @@
                         <label for="new-read">Have you read it?</label>
                         <input id="new-read" name="new-read" type="checkbox" class="checkbox">
                     </div>
-                    <button id="submit-book-form">Add Book</button>
+                    <button id="submit-book-form" type="submit">Add Book</button>
             </form>
         </div>
     </div>
