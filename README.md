@@ -6,11 +6,11 @@ The project is an assignment in the JavaScript Course on [The Odin Project](http
 
 ### Live Demo
 
-Find a live demo of the project [here]().
+Find a live demo of the project [here](https://thetramp22.github.io/book-list/).
 
 ### Screenshot
 
-![]()
+![](./Screenshot%202023-09-17%20at%2020-12-18%20Book%20List.png)
 
 ## Process
 
