@@ -6,10 +6,6 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-Book.prototype.toggleRead = function() {
-    this.read = !this.read;
-}
-
 function addBookToList(book) {
     myBookList.push(book);
 }
@@ -45,8 +41,8 @@ function submitNewBook(e) {
 
 function displayBooks(myBookList) {
     resetBookGrid();
-    for(let book of myBookList) {
-        createBookCard(book);
+    for(let i = 0; i < myBookList.length; i++) {
+        createBookCard(myBookList[i], i);
     }
 }
 
@@ -54,17 +50,30 @@ function resetBookGrid() {
     bookGrid.innerHTML = '';
 }
 
-function createBookCard(book) {
+function createBookCard(book, i) {
     const bookCard = document.createElement('div');
     const title = document.createElement('p');
     const author = document.createElement('p');
     const pages = document.createElement('p');
+    const btnContainer = document.createElement('div');
+    const removeBtn = document.createElement('i');
+    const toggleReadBtn = document.createElement('i');
 
     bookCard.classList.add('book-card');
+    btnContainer.classList.add('book-card-btns');
+    removeBtn.classList.add('fa-regular');
+    removeBtn.classList.add('fa-trash-can');
+    removeBtn.setAttribute('data-key', `${i}`);
+    toggleReadBtn.classList.add('fa-solid');
+    toggleReadBtn.classList.add('fa-book');
+    toggleReadBtn.setAttribute('data-key', `${i}`);
 
     title.textContent = `${book.title}`;
     author.textContent = `Written by ${book.author}`;
     pages.textContent = `${book.pages} pages`;
+
+    removeBtn.addEventListener('click', removeBookCard);
+    toggleReadBtn.addEventListener('click', toggleRead);
 
     if(book.read) {
         bookCard.classList.add('read');
@@ -75,7 +84,21 @@ function createBookCard(book) {
     bookCard.appendChild(title);
     bookCard.appendChild(author);
     bookCard.appendChild(pages);
+    btnContainer.appendChild(removeBtn);
+    btnContainer.appendChild(toggleReadBtn);
+    bookCard.appendChild(btnContainer);
     bookGrid.appendChild(bookCard);
+}
+
+function removeBookCard(e) {
+    myBookList.splice(e.target.getAttribute('data-key'), 1);
+    displayBooks(myBookList);
+}
+
+function toggleRead(e) {
+    let book = myBookList[e.target.getAttribute('data-key')];
+    book.read = !book.read;
+    displayBooks(myBookList);
 }
 
 function showModal() {

@@ -16,3 +16,4 @@ Find a live demo of the project [here]().
 
 ### Things I learned
 
+I'm starting to learn that as my projects get larger I need to stay organized about the way I write code.  As I experiment with things and see what does and does not work, I need to go back and clean things up.  On this project I feel like things got away from me as I went along, and parts of the code are sloppy and hard to read.
